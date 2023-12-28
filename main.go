@@ -21,7 +21,6 @@ func parseOptions() {
 		for i:=0; i< lenArgs-1; i++ {
 			if !strings.Contains(os.Args[i], "-") || strings.Count(os.Args[i], "-") > 1 {
 				help()
-				break
 			}
 		}
 
@@ -71,6 +70,7 @@ func countTotalChars() int{
 
 func help() {
 	fmt.Println("Help message")
+	os.Exit(0)
 }
 
 func main() {
@@ -101,16 +101,19 @@ func main() {
 
 	if printLines {
 		totalLines = countTotalLines()
+		fmt.Println(totalLines, " ")
 	}
 	if printChars {
 		totalChars = countTotalChars()
+		fmt.Println(totalChars, " ")
 	}
 	if printBytes {
 		totalBytes = countTotalBytes()
+		fmt.Println(totalBytes, " ")
 	}
 	if printWords {
 		totalWords = countTotalWords()
+		fmt.Println(totalWords, " ")
 	}
 
-	fmt.Println(totalLines, totalChars, totalBytes, totalWords)
 }
